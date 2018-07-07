@@ -1,5 +1,16 @@
-All Jobs for <strong><%= @company.name %></strong>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Job Tracker Jobs</title>
+</head>
+<body>
+<div class="hero">
+<h1>All Jobs</h1>
+<%= button_to "New Job", new_job_path, method: "get", class: "new-job" %>
+</div>
 
 <% @jobs.each do |job| %>
   <ul><%= job.title %> at <%= job.company.name %></ul>
 <% end %>
+</body>
+</html>
