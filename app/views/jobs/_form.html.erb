@@ -1,6 +1,9 @@
-<%= form_for [@company, @job] do |f| %>
-  <%= f.label :title %>
+<%= form_for [@job] do |f| %>
+  <%= f.label :role %>
   <%= f.text_field :title %>
+
+  <%= f.label :company %>
+  <%= f.text_field :company_id %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>

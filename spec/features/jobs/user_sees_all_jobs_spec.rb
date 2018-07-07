@@ -23,4 +23,14 @@ describe "User sees all jobs" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
   end
+
+  scenario 'a user sees create job button' do
+    visit jobs_path
+
+    within(".hero") do
+      click_on 'New Job'
+    end
+
+    expect(current_path).to eq(new_job_path)
+  end
 end
