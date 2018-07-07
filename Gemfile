@@ -40,6 +40,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'launchy'
 end
 
 group :development do

@@ -7,17 +7,19 @@ describe "User creates a new job" do
     click_button 'New Job'
 
     fill_in "job[title]", with: "Developer"
-    fill_in "job[company_id]", with: company.name
+    select company.name, from: "job[company_id]"
+    # fill_in "job[company]", with: company.name
     fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
+    select 5, from: "job[level_of_interest]"
+    # fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
 
     click_button "Create"
-
+    save_and_open_page
     expect(current_path).to eq("/jobs/#{Job.last.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("80")
+    expect(page).to have_content("5")
     expect(page).to have_content("Denver")
   end
 end
