@@ -4,8 +4,7 @@ describe "User creates a new job" do
   scenario "a user can create a new job" do
     company = Company.create!(name: "ESPN")
     visit jobs_path
-    click_link 'New Job'
-    save_and_open_page
+    click_button 'New Job'
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[company_id]", with: company.id

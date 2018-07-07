@@ -6,7 +6,7 @@
 <body>
 <div class="hero">
 <h1>All Jobs</h1>
-<button><a <%= link_to 'New Job', new_job_path %></button>
+<%= button_to "New Job", new_job_path, method: "get", class: "new-job" %>
 </div>
 
 <% @jobs.each do |job| %>
