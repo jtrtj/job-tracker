@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 describe "User sees all jobs" do
+  scenario 'a user sees jobs index' do
+    company = Company.create!(name: "ESPN")
+    company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 70, city: "Denver")
+    company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 70, city: "New York City")
+
+    visit jobs_path
+    # visit '/jobs'
+
+    expect(page).to have_content("ESPN")
+    expect(page).to have_content("Developer")
+    expect(page).to have_content("QA Analyst")
+  end
   scenario "a user sees all the jobs for a specific company" do
     company = Company.create!(name: "ESPN")
     company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 70, city: "Denver")

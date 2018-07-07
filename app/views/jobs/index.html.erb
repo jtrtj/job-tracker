@@ -1,5 +1,13 @@
-All Jobs for <strong><%= @company.name %></strong>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Job Tracker Jobs</title>
+</head>
+<body>
+<h1>All Jobs</h1>
 
 <% @jobs.each do |job| %>
   <ul><%= job.title %> at <%= job.company.name %></ul>
 <% end %>
+</body>
+</html>
