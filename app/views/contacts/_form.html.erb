@@ -1,0 +1,13 @@
+<%= form_for [ @company, @contact ] do |f| %>
+  <p>
+    <%= f.label :content, 'Name' %><br/>
+    <%= f.text_field :content %>
+    <%= f.label :content, 'Role' %><br/>
+    <%= f.text_field :content %>
+    <%= f.label :content, 'Email' %><br/>
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
