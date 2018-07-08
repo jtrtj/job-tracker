@@ -1,5 +1,5 @@
 <h3>All Companies</h3>
-
+<%= button_to "Add a New Company", new_company_path, method: "get", class: "new-company" %>
 <ul>
   <% @companies.each do |company| %>
   <li class=company_<%= company.id %>>
