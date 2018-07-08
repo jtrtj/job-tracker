@@ -34,7 +34,7 @@ describe 'a user' do
       expect(page).to have_content(comment_2.updated_at)
     end
 
-    it 'can make a comment' do
+    it 'can make a comment and is redirected to jobs/show' do
       john = Company.create(name: 'John')
       job = Job.create(
                       title: 'Personal assistant', 
