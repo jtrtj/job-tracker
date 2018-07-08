@@ -1,0 +1,11 @@
+<h3>Notes:</h3>
+
+<%= form_for [ @job, @comment ] do |f| %>
+  <p>
+    <%= f.label :content, 'Note' %><br/>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
