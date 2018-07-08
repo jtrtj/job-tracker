@@ -6,15 +6,8 @@ describe Category do
   end
 
   it "has a unique name" do
-    Category.create(name: "Dropbox")
-    category = Category.new(name: "Dropbox")
+    Category.create(name: "Development")
+    category = Category.new(name: "Development")
     expect(category).to be_invalid
-  end
-
-  describe "relationships" do
-    it "has many jobs" do
-      category = Category.new(name: "Dropbox")
-      expect(category).to respond_to(:jobs)
-    end
   end
 end
