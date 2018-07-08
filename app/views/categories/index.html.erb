@@ -1,0 +1,8 @@
+<h3>All Categories</h3>
+
+<% @categories.each do |category| %>
+<section id="category-<%= "#{category.id}" %>">
+  <%= link_to category.name, category_path(category) %>
+  <%= button_to "Edit", edit_category_path(category), method: "get", class: "edit-category" %>
+</section>
+<% end %>

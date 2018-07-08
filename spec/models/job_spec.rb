@@ -14,5 +14,8 @@ describe Job do
       job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
       expect(job).to respond_to(:company)
     end
+    context "has many categories through job_categories" do
+      it {should have_many(:categories).through(:job_categories)}
+    end
   end
 end
