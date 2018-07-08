@@ -3,10 +3,12 @@ require 'rails_helper'
 describe "User creates a new job" do
   scenario "a user can create a new job" do
     company = Company.create!(name: "ESPN")
+    category = Category.create!(name: "Development")
+
     visit jobs_path
     click_button 'New Job'
 
-    select 'Dev', from: 'job[category]'
+    select category.name, from: 'job[categories]'
     fill_in "job[title]", with: "Developer"
     select company.name, from: "job[company_id]"
     # fill_in "job[company]", with: company.name
@@ -16,10 +18,12 @@ describe "User creates a new job" do
     fill_in "job[city]", with: "Denver"
 
     click_button "Create"
-    
+    # require 'pry'; binding.pry
+   
     expect(current_path).to eq("/jobs/#{Job.last.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
+    expect(page).to have_content("Development")
     expect(page).to have_content("5")
     expect(page).to have_content("Denver")
   end
