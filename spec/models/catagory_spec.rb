@@ -10,4 +10,10 @@ describe Category do
     category = Category.new(name: "Development")
     expect(category).to be_invalid
   end
+
+  describe "relationships" do
+    context "has many jobs through job_categories" do
+      it {should have_many(:jobs).through(:job_categories)}
+    end
+  end
 end
