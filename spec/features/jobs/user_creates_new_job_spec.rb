@@ -6,6 +6,7 @@ describe "User creates a new job" do
     visit jobs_path
     click_button 'New Job'
 
+    select 'Dev', from: 'job[category]'
     fill_in "job[title]", with: "Developer"
     select company.name, from: "job[company_id]"
     # fill_in "job[company]", with: company.name
