@@ -18,7 +18,7 @@ describe "User sees all categories" do
     within "#category-#{category.id}" do
       click_button('Edit')
     end
-
+    
     expect(current_path).to eq("/categories/#{category.id}/edit")
   end
 end
