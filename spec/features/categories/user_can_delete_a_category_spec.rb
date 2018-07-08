@@ -11,7 +11,8 @@ describe 'user' do
     end
     
     expect(current_path).to eq(categories_path)
-
-    expect(page).to_not have_content(category.name)
+    within "#category-list" do
+     expect(page).to_not have_content(category.name)
+    end
   end
 end
