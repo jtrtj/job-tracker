@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'a user' do
   # let(:john)    { Company.create(name: 'John')}
   # let(:job)     { Job.create(
-  #                           title: 'Personal assistant', 
-  #                           description: 'servitude', 
+  #                           title: 'Personal assistant',
+  #                           description: 'servitude',
   #                           level_of_interest: 5,
   #                           company_id: john.id,
   #                           city: 'Ghent'
@@ -15,8 +15,8 @@ describe 'a user' do
     it "sees job's comments" do
       john = Company.create(name: 'John')
       job = Job.create(
-                      title: 'Personal assistant', 
-                      description: 'servitude', 
+                      title: 'Personal assistant',
+                      description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
                       city: 'Ghent'
@@ -37,8 +37,8 @@ describe 'a user' do
     it 'can make a comment and is redirected to jobs/show' do
       john = Company.create(name: 'John')
       job = Job.create(
-                      title: 'Personal assistant', 
-                      description: 'servitude', 
+                      title: 'Personal assistant',
+                      description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
                       city: 'Ghent'
@@ -47,9 +47,9 @@ describe 'a user' do
 
       visit job_path(job)
 
-      fill_in 'Comment', with: 'I dunno sounds hard'
-      click_button 'Post'
-      
+      fill_in 'Note', with: 'I dunno sounds hard'
+      click_button 'Save'
+
       expect(current_path).to eq(job_path(job))
       expect(page).to have_content(comment.content)
     end
@@ -57,20 +57,22 @@ describe 'a user' do
     it 'sees comments in descending chronological order' do
       john = Company.create(name: 'John')
       job = Job.create(
-                      title: 'Personal assistant', 
-                      description: 'servitude', 
+                      title: 'Personal assistant',
+                      description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
                       city: 'Ghent'
                       )
-      comment_1 = job.comments.create(content: 'I dunno sounds hard')
-      comment_2 = job.comments.create(content: 'Maybe it wouldnt be')
-      comment_3 = job.comments.create(content: 'I dunno its probably hard')
+      comment_1 = job.comments.create(content: 'I dunno sounds hard', created_at: "2018-07-08 21:40:46 UTC")
+      comment_2 = job.comments.create(content: 'Maybe it wouldnt be', created_at: "2018-07-08 21:40:48 UTC")
+      comment_3 = job.comments.create(content: 'I dunno its probably hard', created_at: "2018-07-08 21:40:50 UTC")
 
       visit job_path(job)
-
-      comment_3.content.appears_before(comment_2.content)
-      comment_2.content.appears_before(comment_1.content)
+      save_and_open_page
+      expect(comment_3.content).to appear_before(comment_2.content)
+      expect(comment_2.content).to appear_before(comment_1.content)
+      expect(comment_1.content).to_not appear_before(comment_2.content)
+      expect(comment_2.content).to_not appear_before(comment_3.content)
     end
   end
 end

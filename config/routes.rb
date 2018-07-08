@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :categories
   end
+  resources :jobs do
+    resources :comments
+  end
   resources :categories do
     resources :jobs
   end
