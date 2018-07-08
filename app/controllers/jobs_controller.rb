@@ -5,11 +5,13 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new()
+    @categories = Category.ordered_by_name
     @companies = Company.all
   end
 
   def create
-    @job = Job.new(job_params)
+    category = Category.find(params[:job][:categories])
+    @job = category.jobs.create(job_params)
     if @job.save
       flash.notice = "#{@job.title} at #{@job.company} Created!"
       redirect_to job_path(@job)
