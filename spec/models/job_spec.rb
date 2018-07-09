@@ -15,7 +15,7 @@ describe Job do
       expect(job).to respond_to(:company)
     end
     context "has many categories through job_categories" do
-      it {should have_many(:categories).through(:job_categories)}
+      it {should belong_to(:category)}
     end
   end
 end

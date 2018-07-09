@@ -13,7 +13,7 @@ describe Category do
 
   describe "relationships" do
     context "has many jobs through job_categories" do
-      it {should have_many(:jobs).through(:job_categories)}
+      it {should have_many(:jobs)}
     end
   end
 
