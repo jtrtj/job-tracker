@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(version: 20180709232815) do
     t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
-  create_table "job_categories", force: :cascade do |t|
-    t.bigint "job_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_job_categories_on_category_id"
-    t.index ["job_id"], name: "index_job_categories_on_job_id"
-  end
-
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -67,8 +60,6 @@ ActiveRecord::Schema.define(version: 20180709232815) do
 
   add_foreign_key "comments", "jobs"
   add_foreign_key "contacts", "companies"
-  add_foreign_key "job_categories", "categories"
-  add_foreign_key "job_categories", "jobs"
   add_foreign_key "jobs", "categories"
   add_foreign_key "jobs", "companies"
 end
