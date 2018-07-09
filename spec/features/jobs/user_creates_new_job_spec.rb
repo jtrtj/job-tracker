@@ -11,15 +11,12 @@ describe "User creates a new job" do
     select category.name, from: 'job[categories]'
     fill_in "job[title]", with: "Developer"
     select company.name, from: "job[company_id]"
-    # fill_in "job[company]", with: company.name
     fill_in "job[description]", with: "So fun!"
     select 5, from: "job[level_of_interest]"
-    # fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
 
-    click_button "Create"
-    # require 'pry'; binding.pry
-   
+    click_button "Save"
+
     expect(current_path).to eq("/jobs/#{Job.last.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")

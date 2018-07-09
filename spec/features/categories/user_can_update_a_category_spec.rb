@@ -9,7 +9,7 @@ describe 'user' do
     within "#category-#{category.id}" do
       click_button('Edit')
     end
-    
+
     expect(current_path).to eq("/categories/#{category.id}/edit")
 
     fill_in 'Name', with: 'DevOps'
