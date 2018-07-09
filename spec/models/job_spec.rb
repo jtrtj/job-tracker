@@ -6,6 +6,7 @@ describe Job do
     it {should validate_presence_of(:description)}
     it {should validate_presence_of(:level_of_interest)}
     it {should validate_presence_of(:company_id)}
+    it {should validate_presence_of(:category_id)}
     it {should validate_presence_of(:city)}
   end
 
