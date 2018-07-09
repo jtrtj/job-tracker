@@ -11,6 +11,6 @@
 
 <section>
   <% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
+  <article><%= link_to "#{job.title}", job_path(job), method: "get" %></article>
   <% end %>
 </section>
