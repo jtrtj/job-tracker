@@ -10,7 +10,11 @@
 </div>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <section id="job-<%= job.id %>">
+  <p><%= button_to "Edit", edit_job_path(job), method: "get", class: "edit-job" %></p>
+  <p><%= button_to "Delete", job_path(job), method: "delete", class: "delete-job" %></p>
+  <p><%= job.title %> at <%= job.company.name %></p>
+  </section>
 <% end %>
 </body>
 </html>
