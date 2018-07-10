@@ -10,9 +10,10 @@ describe 'user' do
       job_3 = company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 5, city: "New York City", category_id: category.id)
 
       visit dashboard_index_path
+      save_and_open_page
 
-      expect(page).to have_content("2 jobs with interest level 3")
-      expect(page).to have_content("1 jobs with interest level 5")
+      expect(page).to have_content("2 with interest level 3")
+      expect(page).to have_content("1 with interest level 5")
     end
 
     it 'sees the top 3 companies ranked by level_of_interest wit their average_level_of_interest' do
@@ -41,8 +42,8 @@ describe 'user' do
       
       visit dashboard_index_path
 
-      expect(page).to have_content("Denver: 2")
-      expect(page).to have_content("New York City: 1")
+      expect(page).to have_content("2 located in Denver")
+      expect(page).to have_content("1 located in New York City")
 
       click_on "Denver"
       

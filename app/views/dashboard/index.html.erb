@@ -1,7 +1,14 @@
 <section>
   <article>
    <% @jobs_by_level_of_interest.each do |level, count| %> 
-    <p><%= count %> jobs with interest level <%= level %></p>
+    <p><%= count %> with interest level <%= level %></p>
+    <% end %>
+  <article>
+</section>
+<section>
+  <article>
+   <% @jobs_by_location.each do |location, count| %> 
+    <p><%= count %> located in <%= location %></p>
     <% end %>
   <article>
 </section>
