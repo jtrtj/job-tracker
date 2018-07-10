@@ -11,8 +11,8 @@ describe 'user' do
 
       visit dashboard_index_path
 
-      expect(page).to have_content("3: 2")
-      expect(page).to have_content("5: 1")
+      expect(page).to have_content("2 jobs with interest level 3")
+      expect(page).to have_content("1 jobs with interest level 5")
     end
 
     it 'sees the top 3 companies ranked by level_of_interest wit their average_level_of_interest' do
