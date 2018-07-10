@@ -4,17 +4,33 @@
   <title>Job Tracker Jobs</title>
 </head>
 <body>
-<div class="hero">
-<h1>All Jobs</h1>
-<%= button_to "New Job", new_job_path, method: "get", class: "new-job" %>
-</div>
-
+<section class="hero is-primary is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+          All Jobs
+      </h1>
+      <h2 class="subtitle">
+          <%= button_to "New Job", new_job_path, method: "get", class: "button is-success"  %>
+      </h2>
+  </div>
+  </div>
+</section>
 <% @jobs.each do |job| %>
-  <section id="job-<%= job.id %>">
-  <p><%= button_to "Edit", edit_job_path(job), method: "get", class: "edit-job" %></p>
-  <p><%= button_to "Delete", job_path(job), method: "delete", class: "delete-job" %></p>
-  <p><%= job.title %> at <%= job.company.name %></p>
-  </section>
+  <div class="card" id="job-<%= job.id %>">
+      <div class="card-content">
+          <h2 class="title"><%= job.title %> at <%= job.company.name %></h2> 
+          <h3 class="subtitle"><%= job.category.name %></h3>
+      </div>
+      <footer class="card-footer">
+          <span class="card-footer-item">
+              <p><%= button_to "Edit", edit_job_path(job), method: "get", class: "button is-success" %></p>
+          </span>
+          <span class="card-footer-item"> 
+            <p><%= button_to "Delete", job_path(job), method: "delete", class: "button is-danger" %></p>
+          </span>
+      </footer>
+  </div>
 <% end %>
 </body>
 </html>
