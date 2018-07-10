@@ -26,9 +26,19 @@ describe Job do
       job_1 = company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 1, city: "Denver", category_id: category.id)
       job_2 = company.jobs.create!(title: "CEO", description: 'dfg', level_of_interest: 3, city: "Denver", category_id: category.id)
       job_3 = company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 2, city: "New York City", category_id: category.id)
-      job_3 = company.jobs.create!(title: "Acctuary", description: 'sdgfsa', level_of_interest: 3, city: "New York City", category_id: category.id)
+      job_4 = company.jobs.create!(title: "Acctuary", description: 'sdgfsa', level_of_interest: 3, city: "New York City", category_id: category.id)
 
       expect(Job.number_of_jobs_per_level_of_interest).to eq({1 => 1, 2 => 1, 3 => 2})
+    end
+
+    it '#number_of_jobs_by_city' do
+      company = Company.create(name: 'sdfghf')
+      category = Category.create(name: 'sdfgf')
+      job_1 = company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 1, city: "Denver", category_id: category.id)
+      job_2 = company.jobs.create!(title: "CEO", description: 'dfg', level_of_interest: 3, city: "Denver", category_id: category.id)
+      job_3 = company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 2, city: "New York City", category_id: category.id)
+
+      expect(Job.number_of_jobs_by_city).to eq({"Denver" => 2, "New York City" => 1})
     end
   end
 end
