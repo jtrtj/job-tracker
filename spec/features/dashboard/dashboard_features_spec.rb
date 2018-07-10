@@ -9,7 +9,7 @@ describe 'user' do
       job_2 = company.jobs.create!(title: "CEO", description: 'dfg', level_of_interest: 3, city: "Denver", category_id: category.id)
       job_3 = company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 5, city: "New York City", category_id: category.id)
 
-      visit dashboard_path
+      visit dashboard_index_path
 
       expect(page).to have_content("3: 2")
       expect(page).to have_content("5: 1")
@@ -24,7 +24,7 @@ describe 'user' do
       job_3 = company_2.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 2, city: "New York City", category_id: category.id)
       job_3 = company_2.jobs.create!(title: "Acctuary", description: 'sdgfsa', level_of_interest: 4, city: "New York City", category_id: category.id)
 
-      visit dashboard_path
+      visit dashboard_index_path
 
       expect(page).to have_content("ESPN Average Interest: 2")
       expect(page).to have_content("COOL Average Interest: 3")
@@ -39,7 +39,7 @@ describe 'user' do
       job_2 = company_1.jobs.create!(title: "CEO", description: 'dfg', level_of_interest: 3, city: "Denver", category_id: category.id)
       job_3 = company_2.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 2, city: "New York City", category_id: category.id)
       
-      visit dashboard_path
+      visit dashboard_index_path
 
       expect(page).to have_content("Denver: 2")
       expect(page).to have_content("New York City: 1")
