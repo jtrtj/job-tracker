@@ -4,12 +4,14 @@ describe 'a user' do
   context 'visiting /jobs/show' do
     it "sees job's comments" do
       john = Company.create(name: 'John')
+      category = Category.create!(name: 'awesome!')
       job = Job.create(
                       title: 'Personal assistant',
                       description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
-                      city: 'Ghent'
+                      city: 'Ghent',
+                      category_id: category.id
                       )
       comment_1 = job.comments.create(content: 'wow cool')
       comment_2 = job.comments.create(content: 'wow really cool')
@@ -26,12 +28,14 @@ describe 'a user' do
 
     it 'can make a comment and is redirected to jobs/show' do
       john = Company.create(name: 'John')
+      category = Category.create!(name: 'awesomer!')
       job = Job.create(
                       title: 'Personal assistant',
                       description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
-                      city: 'Ghent'
+                      city: 'Ghent',
+                      category_id: category.id
                       )
       comment = job.comments.create(content: 'I dunno sounds hard')
 
@@ -46,12 +50,14 @@ describe 'a user' do
 
     it 'sees comments in descending chronological order' do
       john = Company.create(name: 'John')
+      category = Category.create!(name: 'awesomest!')
       job = Job.create(
                       title: 'Personal assistant',
                       description: 'servitude',
                       level_of_interest: 5,
                       company_id: john.id,
-                      city: 'Ghent'
+                      city: 'Ghent',
+                      category_id: category.id
                       )
       comment_1 = job.comments.create(content: 'I dunno sounds hard', created_at: "2018-07-08 21:40:46 UTC")
       comment_2 = job.comments.create(content: 'Maybe it wouldnt be', created_at: "2018-07-08 21:40:48 UTC")

@@ -6,6 +6,7 @@ describe Job do
     it {should validate_presence_of(:description)}
     it {should validate_presence_of(:level_of_interest)}
     it {should validate_presence_of(:company_id)}
+    it {should validate_presence_of(:category_id)}
     it {should validate_presence_of(:city)}
   end
 
@@ -15,7 +16,7 @@ describe Job do
       expect(job).to respond_to(:company)
     end
     context "has many categories through job_categories" do
-      it {should have_many(:categories).through(:job_categories)}
+      it {should belong_to(:category)}
     end
   end
 end

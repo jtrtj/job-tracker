@@ -8,12 +8,12 @@ describe "User creates a new job" do
     visit jobs_path
     click_button 'New Job'
 
-    select category.name, from: 'job[categories]'
-    fill_in "job[title]", with: "Developer"
-    select company.name, from: "job[company_id]"
-    fill_in "job[description]", with: "So fun!"
-    select 5, from: "job[level_of_interest]"
-    fill_in "job[city]", with: "Denver"
+    select category.name, from: :job_category_id
+    fill_in :job_title, with: "Developer"
+    select company.name, from: :job_company_id
+    fill_in :job_description, with: "So fun!"
+    select 5, from: :job_level_of_interest
+    fill_in :job_city, with: "Denver"
 
     click_button "Save"
 
