@@ -15,12 +15,12 @@ describe 'user edits a job' do
     visit job_path(job)
     click_button 'Edit'
 
-    select category2.name, from: 'job[categories]'
-    fill_in "job[title]", with: "Jester"
-    select company2.name, from: "job[company_id]"
-    fill_in "job[description]", with: "Flunkie"
-    select 2, from: "job[level_of_interest]"
-    fill_in "job[city]", with: "Mumbai"
+    select category2.name, from: :job_category_id
+    fill_in :job_title, with: "Jester"
+    select company2.name, from: :job_company_id
+    fill_in :job_description, with: "Flunkie"
+    select 2, from: :job_level_of_interest
+    fill_in :job_city, with: "Mumbai"
 
     click_button 'Save'
 

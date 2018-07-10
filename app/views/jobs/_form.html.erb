@@ -1,6 +1,6 @@
 <%= form_for [@job] do |f| %>
   <%= f.label :category %>
-  <%= f.collection_select :categories, @categories,:id,:name, include_blank: "(choose)"%>
+  <%= f.collection_select(:category_id, @categories, :id, :name, include_blank: "(choose)")%>
 
   <%= f.label :role %>
   <%= f.text_field :title %>
