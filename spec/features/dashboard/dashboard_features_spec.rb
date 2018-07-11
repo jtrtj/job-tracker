@@ -97,12 +97,10 @@ describe 'user' do
       expect(page).to have_content('job_1.title')
       expect(page).to have_content('job_2.title')
 =======
-      click_link "Denver"
-
-      expect(current_path).to eq("/jobs/?location=Denver")
-      expect(page).to have_content("job_1.title")
-      expect(page).to have_content("job_2.title")
->>>>>>> b5513ae614f46225c46fe24ac53221be99e8ad85
+      expect(current_path).to eq('/jobs/?location=Denver')
+      expect(page).to have_content('job_1.title')
+      expect(page).to have_content('job_2.title')
+>>>>>>> b0f3ef9ab9acdff4790977cf6101747c3ce108e6
     end
   end
 end
