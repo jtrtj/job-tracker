@@ -59,7 +59,7 @@ describe 'user' do
                                     category_id: category.id)
 
       visit dashboard_index_path
-      save_and_open_page
+
       expect(page).to have_content('ESPN has interest level of 2')
       expect(page).to have_content('COOL has interest level of 3')
       expect(company2.name).to appear_before(company1.name)
@@ -92,9 +92,17 @@ describe 'user' do
 
       click_on 'Denver'
 
+<<<<<<< HEAD
       expect(current_path).to eq('/jobs/?location=Denver')
       expect(page).to have_content('job_1.title')
       expect(page).to have_content('job_2.title')
+=======
+      click_link "Denver"
+
+      expect(current_path).to eq("/jobs/?location=Denver")
+      expect(page).to have_content("job_1.title")
+      expect(page).to have_content("job_2.title")
+>>>>>>> b5513ae614f46225c46fe24ac53221be99e8ad85
     end
   end
 end

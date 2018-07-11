@@ -9,7 +9,7 @@
 <section>
   <article>
     <% @jobs_by_location.each do |location, count| %>
-      <p><%= count %> located in <%= location %></p>
+      <p><%= count %> located in <%= link_to "#{location}", "/jobs?location=#{location}" %></p>
     <% end %>
   <article>
 </section>
