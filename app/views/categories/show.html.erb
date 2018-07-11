@@ -1,5 +1,11 @@
 <h1><%= @category.name %></h1>
 All Jobs
 <% @category.jobs.each do |job| %>
-  <ul><a href='/jobs/<%= job.id %>'><%= job.title %> </a></ul>
+  <ul>
+    Position of
+    <a href='/jobs/<%= job.id %>'><%= job.title %></a>
+     at the Company
+    <a href='/companies/<%= job.company.id %>'><%= job.company.name %></a>
+  </ul>
+  </br>
 <% end %>

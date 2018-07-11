@@ -1,23 +1,34 @@
 <section>
+  Number of Jobs by Level Interest
   <article>
     <% @jobs_by_level_of_interest.each do |level, count| %>
       <p><%= count %> with interest level <%= level %></p>
     <% end %>
   <article>
 </section>
-
+</br></br>
 <section>
+  Number of Jobs by Location
   <article>
     <% @jobs_by_location.each do |location, count| %>
-      <p><%= count %> located in <%= link_to "#{location}", "/jobs?location=#{location}" %></p>
+      <p>
+        <%= count %>
+         located in
+        <%= link_to "#{location}", "/jobs?location=#{location}" %>
+      </p>
     <% end %>
   <article>
 </section>
-
+</br></br>
 <section>
+  Average Level of Interest Per Company
   <article>
     <% @average_level_of_interest_by_company.each do |company| %>
-      <p><%= company.name %> has interest level of <%= company.average_level_of_interest %> </p>
+      <p>
+        <%= link_to "#{company.name}", company_path(company) %>
+         has interest level of
+        <%= company.average_level_of_interest %>
+      </p>
     <% end %>
   <article>
 </section>
