@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   def index
+    require 'pry'; binding.pry
     @jobs = Job.all
   end
 
