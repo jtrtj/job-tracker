@@ -92,15 +92,9 @@ describe 'user' do
 
       click_on 'Denver'
 
-<<<<<<< HEAD
       expect(current_path).to eq('/jobs/?location=Denver')
       expect(page).to have_content('job_1.title')
       expect(page).to have_content('job_2.title')
-=======
-      expect(current_path).to eq('/jobs/?location=Denver')
-      expect(page).to have_content('job_1.title')
-      expect(page).to have_content('job_2.title')
->>>>>>> b0f3ef9ab9acdff4790977cf6101747c3ce108e6
     end
   end
 end
