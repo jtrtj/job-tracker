@@ -11,7 +11,7 @@ class Company < ApplicationRecord
       .limit(3)
   end
 
-  def self.sort_by_name
+  def self.ordered_by_name
     order(:name)
   end
 end
