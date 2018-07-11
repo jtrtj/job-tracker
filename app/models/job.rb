@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   has_many :comments
 
   def self.number_of_jobs_per_level_of_interest
-    group(:level_of_interest).count
+    order(level_of_interest: :DESC).group(:level_of_interest).count
   end
 
   def self.number_of_jobs_by_city

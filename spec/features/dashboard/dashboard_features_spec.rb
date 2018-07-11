@@ -27,7 +27,7 @@ describe 'user' do
       job_5 = company_3.jobs.create!(title: "Acctuary", description: 'sdgfsa', level_of_interest: 1, city: "New York City", category_id: category.id)
 
       visit dashboard_index_path
-      save_and_open_page
+  
       expect(page).to have_content("ESPN has interest level of 2")
       expect(page).to have_content("COOL has interest level of 3")
       expect(company_2.name).to appear_before(company_1.name)
@@ -46,8 +46,8 @@ describe 'user' do
       expect(page).to have_content("2 located in Denver")
       expect(page).to have_content("1 located in New York City")
 
-      click_on "Denver"
-      
+      click_link "Denver"
+   
       expect(current_path).to eq("/jobs/?location=Denver")
       expect(page).to have_content("job_1.title")
       expect(page).to have_content("job_2.title")
