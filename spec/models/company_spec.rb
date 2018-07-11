@@ -52,7 +52,7 @@ describe Company do
       company1 = Company.create!(name: 'ESPN')
       company2 = Company.create!(name: 'COOL')
 
-      expext(Company.sort_by_name).to eq([company2, company1])
+      expect(Company.sort_by_name).to eq([company2, company1])
     end
   end
 end
