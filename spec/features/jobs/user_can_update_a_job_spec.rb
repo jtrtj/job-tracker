@@ -33,7 +33,7 @@ describe 'user edits a job' do
     expect(page).to have_content(new_title)
     expect(page).to have_content(new_description)
     expect(page).to have_content(category2.name)
-    expect(page).to have_content(new_level_of_interest)
+    expect(page).to have_content('*' * new_level_of_interest)
     expect(page).to have_content(new_city)
   end
 end

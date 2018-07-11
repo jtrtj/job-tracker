@@ -1,10 +1,18 @@
-<section class='hero is-primary is-small'>
-  <div class='hero-body'>
-    <div class='container'>
-      <h1 class='title is-1'>
-        Create a Job
-      </h1>
+<body>
+  <section class='hero is-primary is-small'>
+    <div class='hero-body'>
+      <div class='container'>
+        <h1 class='title is-1'>
+          Create a Job
+        </h1>
+        <div class='level'>
+          <p class='level'>
+            <%= button_to 'New Company', new_company_path, method: 'get', class: 'button is-success'  %>
+            <%= button_to 'New Category', new_category_path, method: 'get', class: 'button is-success'  %>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<%= render partial: 'form' %>
+  </section>
+  <%= render partial: 'form' %>
+</body>

@@ -1,4 +1,16 @@
-<h3>All Categories</h3>
+<body>
+    <section class='hero is-primary is-small is-bold'>
+      <div class='hero-body'>
+        <div class='container'>
+          <h1 class='title is-1'>
+            Categories
+          </h1>
+          <h2 class='subtitle'>
+            <%= button_to 'New Category', new_category_path, method: 'get', class: 'button is-success'  %>
+          </h2>
+        </div>
+      </div>
+    </section>
 <div id='category-list'>
   <% @categories.each do |category| %>
     <section id='category-<%= "#{category.id}" %>'>
@@ -8,3 +20,4 @@
     </section>
   <% end %>
 </div>
+</body>
