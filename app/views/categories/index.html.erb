@@ -1,10 +1,10 @@
 <h3>All Categories</h3>
-<div id="category-list">
-<% @categories.each do |category| %>
-<section id="category-<%= "#{category.id}" %>">
-  <%= link_to category.name, category_path(category) %>
-  <%= button_to "Edit", edit_category_path(category), method: "get", class: "edit-category" %>
-  <%= button_to "Delete", category_path(category), method: "delete", class: "delete-category" %>
-</section>
-<% end %>
+<div id='category-list'>
+  <% @categories.each do |category| %>
+    <section id='category-<%= "#{category.id}" %>'>
+      <%= link_to category.name, category_path(category) %>
+      <%= button_to 'Edit', edit_category_path(category), method: 'get', class: 'edit-category' %>
+      <%= button_to 'Delete', category_path(category), method: 'delete', class: 'delete-category' %>
+    </section>
+  <% end %>
 </div>

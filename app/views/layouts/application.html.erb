@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Job Tracker</title>
-  <%= stylesheet_link_tag    'application', :media => 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <!-- navbar items, navbar burger... -->
-    <%= link_to "Jobs", jobs_path, method: "get", class: "navbar-item"%>
-    <%= link_to "Companies", companies_path, method: "get", class: "navbar-item"%>
-  </div>
-</nav>
-<body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-<%= yield %>
-
-</body>
+  <head>
+    <title>Job Tracker</title>
+    <%= stylesheet_link_tag    'application', :media => 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <nav class='navbar is-black' role='navigation' aria-label='main navigation'>
+    <div class='navbar-brand'>
+      <%= link_to 'Jobs', jobs_path, method: 'get', class: 'navbar-item'%>
+      <%= link_to 'Companies', companies_path, method: 'get', class: 'navbar-item'%>
+    </div>
+  </nav>
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <%= yield %>
+  </body>
 </html>

@@ -1,35 +1,52 @@
 require 'rails_helper'
 
-describe "User sees all jobs" do
+describe 'User sees all jobs' do
   scenario 'a user sees jobs index' do
-    company = Company.create!(name: "ESPN")
+    company = Company.create!(name: 'ESPN')
     category = Category.create!(name: 'sdgfd')
-    company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 70, city: "Denver", category_id: category.id)
-    company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 70, city: "New York City", category_id: category.id)
+    job1 = company.jobs.create!(title: 'Developer',
+                                description: 'sagf',
+                                level_of_interest: 70,
+                                city: 'Denver',
+                                category_id: category.id)
+    job2 = company.jobs.create!(title: 'QA Analyst',
+                                description: 'sdgfsa',
+                                level_of_interest: 70,
+                                city: 'New York City',
+                                category_id: category.id)
 
     visit jobs_path
 
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("QA Analyst")
+    expect(page).to have_content(company.name)
+    expect(page).to have_content(category.name)
+    expect(page).to have_content(job1.title)
+    expect(page).to have_content(job2.title)
   end
-  scenario "a user sees all the jobs for a specific company" do
-    company = Company.create!(name: "ESPN")
+  scenario 'a user sees all the jobs for a specific company' do
+    company = Company.create!(name: 'ESPN')
     category = Category.create!(name: 'sdgfd')
-    company.jobs.create!(title: "Developer", description: 'sagf', level_of_interest: 70, city: "Denver", category_id: category.id)
-    company.jobs.create!(title: "QA Analyst", description: 'sdgfsa', level_of_interest: 70, city: "New York City", category_id: category.id)
+    job1 = company.jobs.create!(title: 'Developer',
+                                description: 'sagf',
+                                level_of_interest: 70,
+                                city: 'Denver',
+                                category_id: category.id)
+    job2 = company.jobs.create!(title: 'QA Analyst',
+                                description: 'sdgfsa',
+                                level_of_interest: 70,
+                                city: 'New York City',
+                                category_id: category.id)
 
     visit company_path(company)
 
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("QA Analyst")
+    expect(page).to have_content(company.name)
+    expect(page).to have_content(job1.title)
+    expect(page).to have_content(job2.title)
   end
 
   scenario 'a user sees create job button' do
     visit jobs_path
 
-    within(".hero") do
+    within('.hero') do
       click_on 'New Job'
     end
 
