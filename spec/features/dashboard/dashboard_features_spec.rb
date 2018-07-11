@@ -27,7 +27,7 @@ describe 'user' do
       job_5 = company_3.jobs.create!(title: "Acctuary", description: 'sdgfsa', level_of_interest: 1, city: "New York City", category_id: category.id)
 
       visit dashboard_index_path
-      save_and_open_page
+  
       expect(page).to have_content("ESPN has interest level of 2")
       expect(page).to have_content("COOL has interest level of 3")
       expect(company_2.name).to appear_before(company_1.name)
