@@ -26,7 +26,7 @@ describe 'User creates a new job' do
     expect(page).to have_content(job_title)
     expect(page).to have_content(job_description)
     expect(page).to have_content(category.name)
-    expect(page).to have_content(job_level_of_interest)
+    expect(page).to have_content('*' * job_level_of_interest)
     expect(page).to have_content(job_city)
   end
 end
