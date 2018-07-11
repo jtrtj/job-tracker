@@ -1,8 +1,15 @@
  <% @jobs.each do |job| %>
   <div class='card' id='job-<%= job.id %>'>
     <div class='card-content'>
-      <h2 class='title'><%= link_to job.title, job_path(job) %> at <%= job.company.name %></h2>
-      <h3 class='subtitle'><%= job.category.name %></h3>
+      <h2 class='title'>
+        <%= link_to job.title, job_path(job) %>
+         at
+        <%= link_to job.company.name, company_path(job.company.id) %>
+      </h2>
+      <h3 class='subtitle'>
+        in the Category of
+        <%= link_to job.category.name, category_path(job.category.id) %>
+      </h3>
       <h3 class='subtitle'>Level of Interest: <%= '*' * job.level_of_interest %></h3>
     </div>
     <footer class='card-footer'>

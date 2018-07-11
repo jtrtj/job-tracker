@@ -11,6 +11,12 @@
 
 <section>
   <% @company.jobs.each do |job| %>
-    <article><%= link_to "#{job.title}", job_path(job), method: 'get' %></article>
+    <ul>
+      Position as
+      <a><%= link_to "#{job.title}", job_path(job), method: 'get' %></a>
+      in the Category of
+      <a><%= link_to "#{job.category.name}", category_path("#{job.category.id}"), method: 'get' %></a>
+    </ul>
+    </br>
   <% end %>
 </section>
