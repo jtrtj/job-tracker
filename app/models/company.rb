@@ -10,4 +10,8 @@ class Company < ApplicationRecord
       .order('average_level_of_interest DESC')
       .limit(3)
   end
+
+  def self.ordered_by_name
+    order(:name)
+  end
 end
