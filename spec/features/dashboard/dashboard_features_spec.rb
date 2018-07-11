@@ -59,10 +59,10 @@ describe 'user' do
                                     category_id: category.id)
 
       visit dashboard_index_path
-      save_and_open_page
-      expect(page).to have_content('ESPN has interest level of 2')
-      expect(page).to have_content('COOL has interest level of 3')
-      expect(company2.name).to appear_before(company1.name)
+  
+      expect(page).to have_content("ESPN has interest level of 2")
+      expect(page).to have_content("COOL has interest level of 3")
+      expect(company_2.name).to appear_before(company_1.name)
     end
 
     it "sees a count of jobs by location with link to each location's jobs"  do
