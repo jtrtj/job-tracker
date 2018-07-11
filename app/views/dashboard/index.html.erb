@@ -1,23 +1,60 @@
-<section>
-  <article>
-    <% @jobs_by_level_of_interest.each do |level, count| %>
-      <p><%= count %> with interest level <%= level %></p>
-    <% end %>
-  <article>
-</section>
+<body>
+  <section class='hero is-danger is-small is-bold'>
+    <div class='hero-body'>
+      <div class='container is-fluid'>
+        <h1 class='title is-1'>
+          Job Tracker Dashboard
+        </h1>
+        <container class='columns'>
+          <div class="column">
+            <%= button_to 'New Job', new_job_path, method: 'get', class: 'button is-success'  %>
+          </div>
+          <div class="column">
+            <%= button_to 'New Category', new_category_path, method: 'get', class: 'button is-success'  %>
+          </div>
+          <div class="column">
+            <%= button_to 'New Company', new_company_path, method: 'get', class: 'button is-success' %>
+          </div>
+          <div class="column is-three-quarters">
+          </div>
+        </container>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <article>
-    <% @jobs_by_location.each do |location, count| %>
-      <p><%= count %> located in <%= link_to "#{location}", "/jobs?location=#{location}" %></p>
-    <% end %>
-  <article>
-</section>
-
-<section>
-  <article>
-    <% @average_level_of_interest_by_company.each do |company| %>
-      <p><%= company.name %> has interest level of <%= company.average_level_of_interest %> </p>
-    <% end %>
-  <article>
-</section>
+  <section class="container">
+    <div class="tile is-ancestorow ">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+              <p class="title">Jobs by Interest Level:</p>
+              <ul>
+                <% @jobs_by_level_of_interest.each do |level, count| %>
+                  <li class="subtitle"><%= count %> with interest level <%= level %></li>
+                <% end %>
+              <ul>
+            </article>
+            <article class="tile is-child notification is-warning">
+              <p class="title">Top Three Companies by Interest Level:</p>
+              <ul>
+                <% @average_level_of_interest_by_company.each do |company| %>
+                  <li class="subtitle"><%= link_to company.name, company_path(company) %> has interest level of <%= company.average_level_of_interest %> </li>
+                <% end %>
+              </ul>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-info">
+              <p class="title">Jobs by Location:</p>
+                <ul>
+                  <% @jobs_by_location.each do |location, count| %>
+                    <li class="subtitle"><%= count %> located in <%= link_to "#{location}", "/jobs?location=#{location}" %></li>
+                  <% end %>
+                </ul>
+            </article>
+          </div>
+        </div>
+    </div>
+  </section>
+</body>

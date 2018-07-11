@@ -47,5 +47,12 @@ describe Company do
       expect(Company.average_level_of_interest_by_company).to eq([company2,
                                                                   company1])
     end
+
+    it '#sort_by_name' do
+      company1 = Company.create!(name: 'ESPN')
+      company2 = Company.create!(name: 'COOL')
+
+      expect(Company.ordered_by_name).to eq([company2, company1])
+    end
   end
 end

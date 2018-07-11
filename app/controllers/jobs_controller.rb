@@ -16,7 +16,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @categories = Category.ordered_by_name
-    @companies = Company.all
+    @companies = Company.ordered_by_name
   end
 
   def create
@@ -38,7 +38,7 @@ class JobsController < ApplicationController
   def edit
     @job = Job.find(params[:id])
     @categories = Category.ordered_by_name
-    @companies = Company.all
+    @companies = Company.ordered_by_name
   end
 
   def update
