@@ -5,10 +5,19 @@
     <% end %>
   <article>
 </section>
+
 <section>
   <article>
    <% @jobs_by_location.each do |location, count| %> 
     <p><%= count %> located in <%= location %></p>
+    <% end %>
+  <article>
+</section>
+
+<section>
+  <article>
+   <% @average_level_of_interest_by_company.each do |company| %> 
+    <p><%= company.name %> has interest level of <%= company.average_level_of_interest %> </p>
     <% end %>
   <article>
 </section>
