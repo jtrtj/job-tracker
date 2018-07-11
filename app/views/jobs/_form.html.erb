@@ -1,14 +1,14 @@
 <%= form_for [@job] do |f| %>
- 
- <div class="tile is-ancestor">
-  <div class="is-4 is-verticle tile is-parent">
-    <div class="tile is-child box">
+
+<div class='tile is-ancestor'>
+  <div class='is-4 is-verticle tile is-parent'>
+    <div class='tile is-child box'>
       <%= f.label :category %>
-      <%= f.collection_select(:category_id, @categories, :id, :name, include_blank: "(choose)")%>
+      <%= f.collection_select(:category_id, @categories, :id, :name, include_blank: '(choose)')%>
       <%= f.label :role %>
       <%= f.text_field :title %>
       <%= f.label :company %>
-      <%= f.collection_select :company_id, @companies.order(:name),:id,:name, include_blank: "(choose)"%>
+      <%= f.collection_select :company_id, @companies.order(:name),:id,:name, include_blank: '(choose)'%>
       <%= f.label :description %>
       <%= f.text_field :description %>
       <%= f.label :level_of_interest %>
@@ -19,5 +19,4 @@
     </div>
   </div>
 </div>
-  
 <% end %>

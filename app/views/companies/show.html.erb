@@ -1,7 +1,7 @@
 <section>
   <h2><%= @company.name %></h2>
-  <%= button_to "Edit", edit_company_path(@company) %>
-  <%= button_to "Delete", company_path(@company), method: "delete" %>
+  <%= button_to 'Edit', edit_company_path(@company) %>
+  <%= button_to 'Delete', company_path(@company), method: 'delete' %>
 </section>
 
 <section>
@@ -11,6 +11,6 @@
 
 <section>
   <% @company.jobs.each do |job| %>
-  <article><%= link_to "#{job.title}", job_path(job), method: "get" %></article>
+    <article><%= link_to "#{job.title}", job_path(job), method: 'get' %></article>
   <% end %>
 </section>

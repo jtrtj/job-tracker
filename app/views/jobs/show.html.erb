@@ -14,8 +14,8 @@ Category: <%= @job.category.name %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-<%= button_to "Edit", edit_job_path(@job), method: 'get' %>
-<%= button_to "Delete", job_path(@job), method: "delete" %>
+<%= button_to 'Edit', edit_job_path(@job), method: 'get' %>
+<%= button_to 'Delete', job_path(@job), method: 'delete' %>
 
 <%= render partial: 'comments/form' %>
 <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>

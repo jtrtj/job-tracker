@@ -1,23 +1,23 @@
 <section>
   <article>
-   <% @jobs_by_level_of_interest.each do |level, count| %> 
-    <p><%= count %> with interest level <%= level %></p>
+    <% @jobs_by_level_of_interest.each do |level, count| %>
+      <p><%= count %> with interest level <%= level %></p>
     <% end %>
   <article>
 </section>
 
 <section>
   <article>
-   <% @jobs_by_location.each do |location, count| %> 
-    <p><%= count %> located in <%= location %></p>
+    <% @jobs_by_location.each do |location, count| %>
+      <p><%= count %> located in <%= location %></p>
     <% end %>
   <article>
 </section>
 
 <section>
   <article>
-   <% @average_level_of_interest_by_company.each do |company| %> 
-    <p><%= company.name %> has interest level of <%= company.average_level_of_interest %> </p>
+    <% @average_level_of_interest_by_company.each do |company| %>
+      <p><%= company.name %> has interest level of <%= company.average_level_of_interest %> </p>
     <% end %>
   <article>
 </section>
